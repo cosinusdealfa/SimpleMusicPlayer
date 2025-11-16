@@ -1,0 +1,32 @@
+body
+{
+    background-color: #16100B;
+}
+
+.playButtonSymbol
+{
+    position: relative;
+    top: 4px;
+    left: 8px;
+    height: 96px;
+    width: 96px;
+    box-shadow: inset #000000 0px 6px 60px -6px, #e18658 0px -30px 140px 0px;
+    background: linear-gradient(to left 50% 70%, #FFFFFF 5%, #FFB269 80%);
+}
+
+.playButton
+{
+    height: 200px;
+    width: 200px;
+    border: none;
+    box-shadow: inset #000000 0px 6px 60px -6px, #e18658 0px -30px 140px 0px;
+    background-image: radial-gradient(circle at 50% 70%, #DA875B 5%, #4A2819 80%);
+    border-radius: 100%;
+}
+
+.playButtonPosition
+{
+    position: relative;
+    top: 120px;
+    left: 100px;
+}
