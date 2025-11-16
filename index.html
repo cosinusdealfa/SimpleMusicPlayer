@@ -1,15 +1,41 @@
 <html>
-<head>
-    <title>Mih Brilliant Player</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="playButtonPosition">
-        <button class="playButton">
-            <svg id="playButtonSymbol" class="playButtonSymbol" viewBox="0 0 294 326">
-	            <path id="Shape 3" fill-rule="evenodd" class="s0" d="m12.04 278.32v-231.59c0-26.95 29.17-43.79 52.5-30.31l200.57 115.79c23.33 13.47 23.33 47.15 0 60.62l-200.57 115.8c-23.33 13.47-52.5-3.37-52.5-30.31z"/>
-            </svg>
-        </button>
-    </div>
-</body> 
+    <head>
+        <title>Mih Brilliant Player</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="playButtonPosition">
+            <button class="playButton">
+                <svg id="playButtonSymbol" class="playButtonSymbol" viewBox="0 0 294 326">
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" x2="0%" y1="100%" y2="0%">
+                            <stop offset="0%" stop-color="#FFB269" />
+                            <stop offset="100%" stop-color="#FFFFFF" />
+                        </linearGradient>
+                        <filter id="inset-shadow">
+                            <feFlood flood-color="black"/>
+
+                            <!-- This next operation subtracts the original shape from the red color 
+                            field filling the filter region - which will give you a big color border 
+                            surrounding the original shape -->
+                            <feComposite in2="SourceGraphic" operator="out" />
+
+                            <!-- Next we want to expand the red border so it overlaps the space of the 
+                            original shape - the radius X below will expand it by X pixels -->
+                            <feMorphology operator="dilate" radius="9"/>
+                            <feGaussianBlur stdDeviation="20" />
+                            <feOffset dx="0" dy="0" result="offsetblur"/>
+                            
+                            <!-- After blurring it, we want to select just the parts of the blurred, 
+                            expanded border that overlap the original shape - which we can do by using 
+                            the 'atop' operator -->
+                            <feComposite in2="offsetblur" operator="atop"/>
+                            <feComposite in2="SourceGraphic" operator="atop"/>
+                        </filter>
+                    </defs>
+                    <path fill="url(#gradient)" filter="url(#inset-shadow)" d="m12.04 278.32v-231.59c0-26.95 29.17-43.79 52.5-30.31l200.57 115.79c23.33 13.47 23.33 47.15 0 60.62l-200.57 115.8c-23.33 13.47-52.5-3.37-52.5-30.31z"/>
+                </svg>
+            </button>
+        </div>
+    </body> 
 </html>
